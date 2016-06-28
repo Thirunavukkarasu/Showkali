@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="Showkali">
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Showkali</title>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link href="stylesheets/animate.css" rel="stylesheet">
+  <link href="stylesheets/style.css" rel="stylesheet">
+</head>
+<body>
+<div ng-controller="NavbarCtrl" class="navbar navbar-default navbar-static-top" role="navigation" bs-navbar>
+	  <div class="navbar-header">
+	    <a class="navbar-brand" href="/">
+	      <span class="glyphicon glyphicon-film"></span>
+	      Show<strong>Kali</strong></a>
+	  </div>
+	  <ul class="nav navbar-nav">
+	    <li data-match-route="/$"><a href="/">Home</a></li>
+	    <li data-match-route="/addshow"><a href="/addshow">Add</a></li>
+	  </ul>
+	  <ul class="nav navbar-nav pull-right" ng-if="!currentUser">
+	    <li data-match-route="/login"><a href="/login">Login</a></li>
+	    <li data-match-route="/signup"><a href="/signup">Sign up</a></li>
+	  </ul>
+	  <ul class="nav navbar-nav pull-right" ng-if="currentUser">
+	    <li class="navbar-text" ng-bind="currentUser.email"></li>
+	    <li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
+	  </ul>
+</div>
+<div ng-view class="{{pageClass}}"></div>
+
+<script src="vendor/angular.js"></script>
+<script src="vendor/angular-strap.js"></script>
+<script src="vendor/angular-strap.tpl.js"></script>
+<script src="vendor/angular-messages.js"></script>
+<script src="vendor/angular-resource.js"></script>
+<script src="vendor/angular-route.js"></script>
+<script src="vendor/angular-animate.js"></script>
+<script src="vendor/moment.js"></script>
+
+<!-- Website specific files -->
+<script src="app/app.js"></script>
+
+<!-- Core -->
+<script src="app/core/core.module.js"></script>
+<script src="app/core/directives/repeatPassword.directive.js"></script>
+<script src="app/core/services/show.service.js"></script>
+<script src="app/core/services/subscription.service.js"></script>
+<script src="app/core/services/auth.service.js"></script>
+
+<!-- Home -->
+<script src="app/home/home.route.js"></script>
+<script src="app/home/home.controller.js"></script>
+
+<!-- Add Show -->
+<script src="app/addshow/addshow.route.js"></script>
+<script src="app/addshow/addshow.controller.js"></script>
+
+<!-- Detail -->
+<script src="app/detail/detail.route.js"></script>
+<script src="app/detail/detail.controller.js"></script>
+
+<!-- Login -->
+<script src="app/login/login.route.js"></script>
+<script src="app/login/login.controller.js"></script>
+
+<!-- SignUp -->
+<script src="app/signup/signup.route.js"></script>
+<script src="app/signup/signup.controller.js"></script>
+
+
+</body>
+</html>
